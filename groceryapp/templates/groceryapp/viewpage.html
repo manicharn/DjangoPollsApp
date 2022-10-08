@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view page</title>
+</head>
+<body>
+    {% block content %}
+    <div>
+        {% for item in items %}
+        <strong>{{ item}}</strong>
+        <ul>
+            <li><strong>Product</strong>:{{ item.product_name }}</li>
+            <li><strong>Price</strong>:{{ item.price }}</li>
+            <li><strong>Quantity</strong>:{{ item.quantity }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import ShoppingCart,GetcartData,ShoppingCartUpdate,ShoppingCartDelete
+from .views import ShoppingCart,GetcartData,ShoppingCartUpdate,ShoppingCartDelete,DbInsertApi
 
 urlpatterns = [
     
@@ -8,4 +8,5 @@ urlpatterns = [
     path("getcart/",GetcartData.as_view()),
     path("updatecart/<int:item_id>",ShoppingCartUpdate.as_view()),
     path("deleteitem/<int:item_id>",ShoppingCartDelete.as_view()),
+    path("dbinsert/",DbInsertApi.as_view()),
 ]

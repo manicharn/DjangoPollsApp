@@ -87,3 +87,29 @@ class ShoppingCartDelete(View):
         msg={"message":f"the cart item with id={item_id} is deleted"}
         
         return JsonResponse(msg)
+
+
+class DbInsertApi(View):
+    def get(self,request):
+        import requests
+
+        url = "http://127.0.0.1:8000/shoppingapp/getcart"
+        payload={}
+        headers = {}
+        response = requests.request("GET", url, headers=headers, data=payload)
+
+        result=response.json()
+
+        print(result['items'][0]['product_name'])
+        product=result['items'][0]['product_name']
+        price=result['items'][0]['price']
+        quantity=result['items'][0]['quantity']
+
+        product_data={
+            'product_name':product,
+            'price':price,
+            'quantity':quantity,
+        }
+        cart_item=CartData.objects.create(**product_data)
+        msg={'message':f'the product data has been added to the cart data with id {cart_item.id}'}
+        return JsonResponse(msg)
