@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "shoppingapp",
     "groceryapp",
     "rest_framework",
+    "filewatcher",
 ]
 
 MIDDLEWARE = [

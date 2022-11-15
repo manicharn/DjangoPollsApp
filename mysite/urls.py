@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("shoppingapp/",include('shoppingapp.urls')),
     path("grocery/",include("groceryapp.urls")),
+    path("filewatcher/",include("filewatcher.urls")),
 ]
